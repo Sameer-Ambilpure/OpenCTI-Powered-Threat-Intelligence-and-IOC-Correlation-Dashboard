@@ -1,4 +1,4 @@
-# OpenCTI client for Python
+# OpenCTI-Powered-Threat-Intelligence-and-IOC-Correlation-Dashboard
 
 [![Website](https://img.shields.io/badge/website-opencti.io-blue.svg)](https://opencti.io)
 [![CircleCI](https://circleci.com/gh/OpenCTI-Platform/client-python.svg?style=shield)](https://circleci.com/gh/OpenCTI-Platform/client-python/tree/master)
