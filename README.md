@@ -50,16 +50,6 @@ $ git push origin [branch-name]
 $ pip install -e .
 ```
 
-## Documentation
-
-### Client usage
-
-To learn about how to use the OpenCTI Python client and read some examples and cases, refer to [the client documentation](https://opencti-client-for-python.readthedocs.io/en/latest/client_usage/getting_started.html).
-
-### API reference
-
-To learn about the methods available for executing queries and retrieving their answers, refer to [the client API Reference](https://opencti-client-for-python.readthedocs.io/en/latest/pycti/pycti.html).
-
 ## Tests
 
 ### Install dependencies
@@ -102,9 +92,3 @@ export OPENCTI_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxx"
 #Run one example file
 python get_indicators_of_malware.py
 ```
-
-## About
-
-OpenCTI is a product designed and developed by the company [Filigran](https://filigran.io).
-
-<a href="https://filigran.io" alt="Filigran"><img src="https://github.com/OpenCTI-Platform/opencti/raw/master/.github/img/logo_filigran.png" width="300" /></a>
