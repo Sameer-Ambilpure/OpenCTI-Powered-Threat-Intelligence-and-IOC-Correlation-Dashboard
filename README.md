@@ -1,94 +1,60 @@
-# OpenCTI-Powered-Threat-Intelligence-and-IOC-Correlation-Dashboard
-
-[![Website](https://img.shields.io/badge/website-opencti.io-blue.svg)](https://opencti.io)
-[![CircleCI](https://circleci.com/gh/OpenCTI-Platform/client-python.svg?style=shield)](https://circleci.com/gh/OpenCTI-Platform/client-python/tree/master)
-[![readthedocs](https://readthedocs.org/projects/opencti-client-for-python/badge/?style=flat)](https://opencti-client-for-python.readthedocs.io/en/latest/)
-[![GitHub release](https://img.shields.io/github/release/OpenCTI-Platform/client-python.svg)](https://github.com/OpenCTI-Platform/client-python/releases/latest)
-[![Number of PyPI downloads](https://img.shields.io/pypi/dm/pycti.svg)](https://pypi.python.org/pypi/pycti/)
-[![Slack Status](https://img.shields.io/badge/slack-3K%2B%20members-4A154B)](https://community.filigran.io)
-
-The official OpenCTI Python client helps developers to use the OpenCTI API by providing easy to use methods and utils.
-This client is also used by some OpenCTI components.
-
-## Install
-
-To install the latest Python client library, please use `pip`:
-
+# OpenCTI-Powered Threat Intelligence and IOC Correlation Dashboard 🕵️
+An enterprise-grade security analytics platform designed to transform raw threat intelligence into actionable, visual insights. This dashboard integrates directly with the **OpenCTI ecosystem** to provide SOC analysts with a unified "single pane of glass" for tracking global threat actors, TTPs, and vulnerabilities.
+---
+## 📝 Project Description
+This dashboard is a high-performance visualization suite built upon the **Open Cyber Threat Intelligence (OpenCTI)** framework. Utilizing the **pycti** Python SDK, it ingests structured STIX 2.1 data and presents it through a professional, high-fidelity web interface. 
+### **Key Features:**
+*   **Strategic Overview**: High-level posture assessment using Sunburst and Treemap visualizations.
+*   **Tactical TTP Analysis**: Real-time mapping of adversary techniques to the **MITRE ATT&CK** framework.
+*   **Vulnerability Matrix**: Risk-based prioritization of CVEs using real-world exploitation intelligence.
+*   **Correlation Engine**: Advanced multi-dimensional search to uncover hidden links between Actors, Malware, and IOCs.
+---
+## ⚙️ Project Requirements
+### **System Specifications**
+*   **OS**: Windows 10/11, macOS, or Linux (64-bit)
+*   **Memory**: 4 GB RAM (8 GB recommended)
+*   **Python**: v3.10 or later
+### **Software Dependencies**
+*   **pycti**: Official OpenCTI Python Client.
+*   **Streamlit**: Web application framework for the user interface.
+*   **Plotly**: Interactive charting and data visualization library.
+*   **Pandas**: High-speed data manipulation and transformation engine.
+---
+## 🗄️ Database Setup (OpenCTI)
+This dashboard uses **OpenCTI** as its central intelligence database. You do not need to set up a local SQL/NoSQL database; instead, you connect to an OpenCTI instance via its API.
+1.  **Host**: Use the official demo instance (`https://demo.opencti.io`) or your organization's local instance.
+2.  **API Token**: 
+    *   Log in to your OpenCTI platform.
+    *   Navigate to **Profile > API Access**.
+    *   Copy your unique alphanumeric API token.
+3.  **Permissions**: Ensure your API account has "Analyst" or "Administrator" privileges to access all datasets.
+---
+## 🚀 How to Run the Project Locally
+Follow these steps to launch the dashboard on your local machine:
+### **1. Clone the Repository**
 ```bash
-$ pip3 install pycti
-```
+git clone https://github.com/OpenCTI-Platform/client-python.git
+cd client-python
+2. Set Up Virtual Environment
+bash
+# Create the environment
+python -m venv venv
+# Activate (Windows)
+.\venv\Scripts\activate
+# Activate (macOS/Linux)
+source venv/bin/activate
+3. Install Requirements
+bash
+pip install -r requirements.txt
+pip install streamlit pandas plotly
+4. Launch the Application
+bash
+streamlit run app.py
+5. Access the Dashboard
+Open your browser and navigate to http://localhost:8501. Enter your OpenCTI URL and API Token in the sidebar to begin your intelligence session.
 
-## Local development
-
-```bash
-# Fork the current repository, then clone your fork
-$ git clone https://github.com/YOUR-USERNAME/client-python
-$ cd client-python
-$ git remote add upstream https://github.com/OpenCTI-Platform/client-python.git
-# Create a branch for your feature/fix
-$ git checkout -b [branch-name]
-# Create a virtualenv
-$ python3 -m venv .venv
-$ source .venv/bin/activate
-# Install the client-python and dependencies for the development and the documentation
-$ python3 -m pip install -e .[dev,doc]
-# Set up the git hook scripts
-$ pre-commit install
-# Create your feature/fix
-# Create tests for your changes
-$ pytest
-# Push you feature/fix on Github
-$ git add [file(s)]
-$ git commit -m "[descriptive message]"
-$ git push origin [branch-name]
-# Open a pull request
-```
-
-### Install the package locally
-
-```bash
-$ pip install -e .
-```
-
-## Tests
-
-### Install dependencies
-
-```bash
-$ pip install -r ./test-requirements.txt
-```
-
-[pytest](https://docs.pytest.org/en/7.2.x/) is used to launch the tests.
-
-### Launch tests
-
-#### Prerequisite
-
-Your OpenCTI API should be running.
-Your conftest.py should be configured with your API url, your token, and if applicable, your mTLS cert/key.
-
-#### Launching
-
-Unit tests
-```bash
-$ pytest ./tests/01-unit/
-```
-
-Integration testing
-```bash
-$ pytest ./tests/02-integration/
-```
-
-Example testing:
-
-> OpenCTI must be running
-
-```bash
-cd examples
-# Configure with you local instance of OpenCTI
-export OPENCTI_API_URL="http://localhost:4000"
-export OPENCTI_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxx"
-
-#Run one example file
-python get_indicators_of_malware.py
-```
+🛠️ Project Architecture
+Ingestion: Secure GraphQL queries via pycti.
+Processing: Automated data cleaning and entity correlation via pandas.
+Visualization: Dynamic, high-fidelity rendering via plotly.
+Interface: Professional "True White" analyst-first UI via streamlit.
